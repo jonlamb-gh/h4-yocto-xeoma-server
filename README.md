@@ -5,6 +5,7 @@ WIC related (kirkstone):
 https://docs.yoctoproject.org/4.0.17/dev-manual/wic.html
 
 https://www.thegoodpenguin.co.uk/blog/self-installing-yocto-image-from-a-usb-drive/
+https://hub.mender.io/t/how-to-configure-networking-using-systemd-in-yocto-project/1097
 
 once done, dd the wic file to usb stick
 
@@ -25,8 +26,9 @@ https://www.hardkernel.com/shop/samsung-16gb-ddr5-5600-so-dimm/
 TODO
 
 
-trying qemu:
-doesn't work yet
+TODO 
+watchdog?
+
 ```
-qemu-system-x86_64 -smp 4 -m 2G -initrd core-image-minimal-initramfs-odroid-h4.cpio.gz -drive file=core-image-full-cmdline-odroid-h4-20240425151742.rootfs.wic,if=none,id=disk,format=raw -kernel ./bzImage
+minicom -c on -D /dev/ttyUSB0 -w
 ```

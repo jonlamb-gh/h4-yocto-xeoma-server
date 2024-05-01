@@ -1,0 +1,9 @@
+# /etc/systemd/network/00-enp2s0.network
+
+[Match]
+Name=enp2s0
+
+[Network]
+Address=192.168.2.138/24
+Gateway=192.168.2.1
+DNS=192.168.2.1

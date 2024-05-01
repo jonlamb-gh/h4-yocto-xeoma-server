@@ -1,0 +1,18 @@
+[Unit]
+Description=XeomaCore Service
+After=network.target syslog.target
+StartLimitBurst=5
+StartLimitIntervalSec=33
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xeoma -core -startdelay 5 -disableDownloads -noscan -noscanptzandaudio -uselocaltime -serverport 8897 -programdir /var/xeoma/data -archivecache /var/xeoma/cache
+ExecStartPre=+/bin/sh -c "[ -d /var/xeoma/data ] && [ -r /var/xeoma/data ] && [ -w /var/xeoma/data ] && [ -x /var/xeoma/data ]"
+ExecStartPre=+/bin/sh -c "[ -d /var/xeoma/cache ] && [ -r /var/xeoma/cache ] && [ -w /var/xeoma/cache ] && [ -x /var/xeoma/cache ]"
+RestartSec=5
+Restart=on-failure
+User=xeoma
+Group=xeoma
+
+[Install]
+WantedBy=default.target
