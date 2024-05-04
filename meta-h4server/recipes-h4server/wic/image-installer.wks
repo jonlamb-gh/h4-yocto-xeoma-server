@@ -1,0 +1,8 @@
+# create an installer disk image
+# populate content to install using IMAGE_BOOT_FILES
+
+part /boot --source bootimg-efi --sourceparams="loader=grub-efi,title=install,label=install-efi,initrd=core-image-minimal-initramfs-odroid-h4.ext4" --ondisk sda --label install --active --align 1024 --use-uuid
+
+part / --source bootimg-partition --ondisk sda --fstype=ext4 --label image --use-uuid --align 1024
+
+bootloader --ptable gpt --timeout=5 --append=" root=/dev/ram0 rw rootwait console=ttyS0,115200 ramdisk_size=81920 raid=noautodetect "

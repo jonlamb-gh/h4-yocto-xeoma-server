@@ -4,6 +4,8 @@ LICENSE = "MIT"
 
 inherit core-image extrausers
 
+WKS_SEARCH_PATH:append = ":${THISDIR}/../wic"
+
 IMAGE_FEATURES += "ssh-server-openssh package-management"
 
 IMAGE_INSTALL = "\
@@ -22,6 +24,7 @@ IMAGE_INSTALL += " vim"
 IMAGE_INSTALL += " kernel-modules"
 IMAGE_INSTALL += " procps iptables"
 IMAGE_INSTALL += " netcat iproute2 net-tools iputils-ping htop"
+IMAGE_INSTALL += " parted e2fsprogs"
 IMAGE_INSTALL += " xeoma"
 
 COMPATIBLE_MACHINE = "odroid-h4"

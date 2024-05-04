@@ -13,6 +13,7 @@ RestartSec=5
 Restart=on-failure
 User=xeoma
 Group=xeoma
+TimeoutSec=10
 
 [Install]
 WantedBy=default.target

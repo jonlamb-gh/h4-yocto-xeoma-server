@@ -10,11 +10,6 @@ bitbake h4server-image
 
 tree tmp/deploy/images/odroid-h4
 
-wic create mkefidisk -e h4server-image
-
-# bitbake bmap-tools-native -caddto_recipe_sysroot
-# oe-run-native bmap-tools-native bmaptool copy mkefidisk-201804191017-sda.direct /dev/sdX
-
-# sudo dd if=mkefidisk-201804191017-sda.direct of=/dev/sdX status=progress
+echo "RUN THIS: sudo dd if=tmp/deploy/images/odroid-h4/h4server-image-odroid-h4.wic of=/dev/sdX status=progress && sudo sync"
 
 exit 0
